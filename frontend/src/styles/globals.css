@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+:root {
+  --green-primary: #4CAF50;
+  --green-dark: #2E7D32;
+  --green-glow: rgba(76, 175, 80, 0.5);
+  --glass-bg: rgba(255, 255, 255, 0.13);
+  --glass-border: rgba(255, 255, 255, 0.22);
+  --glass-blur: blur(18px);
+  --text-white: #ffffff;
+  --text-soft: rgba(255, 255, 255, 0.82);
+  --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.28);
+  --radius-card: 24px;
+  --radius-btn: 18px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #0d1f0d;
+  color: var(--text-white);
+  overflow-x: hidden;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
