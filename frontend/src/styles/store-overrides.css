@@ -1,0 +1,252 @@
+/* store-overrides.css — Overrides and additions for the Garden Wars dashboard refactor */
+
+/* ── HEADER: stronger glassmorphism ── */
+.store-header {
+  background: rgba(10, 28, 10, 0.72) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(76, 175, 80, 0.25);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* ── LOGGED IN AS badge ── */
+.store-header__badge {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 8px 16px;
+  max-width: 280px;
+}
+
+.store-header__label {
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  color: rgba(76, 175, 80, 0.9) !important;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.store-header__email {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+  display: block !important; /* override the mobile display:none */
+}
+
+/* ── BACKPACK icon button ── */
+.icon-button {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s, box-shadow 0.18s;
+}
+
+.icon-button:hover {
+  background: rgba(76, 175, 80, 0.25);
+  box-shadow: 0 0 14px rgba(76, 175, 80, 0.4);
+}
+
+/* ── PAYMENT SUCCESS MODAL (centered, replaces bottom toast) ── */
+.payment-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.payment-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2001;
+  background: rgba(18, 42, 20, 0.96);
+  border: 1px solid rgba(76, 175, 80, 0.45);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 24px;
+  padding: 40px 36px;
+  width: min(90vw, 420px);
+  text-align: center;
+  box-shadow: 0 0 60px rgba(76, 175, 80, 0.25), 0 24px 64px rgba(0, 0, 0, 0.5);
+  animation: modalPop 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: translate(-50%, -52%) scale(0.94); }
+  to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.payment-modal__icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.payment-modal__title {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 1.6rem;
+  color: #4CAF50;
+  margin: 0 0 12px;
+  text-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
+}
+
+.payment-modal__msg {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0 0 28px;
+}
+
+.payment-modal__close {
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 32px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: opacity 0.18s, box-shadow 0.18s;
+  box-shadow: 0 0 16px rgba(76, 175, 80, 0.35);
+}
+
+.payment-modal__close:hover {
+  opacity: 0.88;
+  box-shadow: 0 0 28px rgba(76, 175, 80, 0.55);
+}
+
+/* ── LOGOUT NOTIFICATION ── */
+.logout-notification {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3000;
+  background: rgba(18, 42, 20, 0.97);
+  border: 1px solid rgba(76, 175, 80, 0.5);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 16px;
+  padding: 24px 40px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #4CAF50;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(76, 175, 80, 0.3), 0 16px 48px rgba(0, 0, 0, 0.5);
+  animation: modalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── QUANTITY BADGE — gold circle, always shown ── */
+.quantity-badge {
+  position: absolute !important;
+  top: 12px !important;
+  right: 12px !important;
+  background: linear-gradient(135deg, #f59e0b, #fbbf24) !important;
+  color: #1a0f00 !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 900 !important;
+  min-width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 2px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.5), 0 2px 8px rgba(0,0,0,0.3) !important;
+  z-index: 10;
+  letter-spacing: 0.5px;
+}
+
+/* ── FOOTER ── */
+.store-footer {
+  text-align: center;
+  padding: 24px 20px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 40px;
+  letter-spacing: 0.3px;
+}
+
+/* ── MOBILE OVERRIDES ── */
+@media (max-width: 768px) {
+  /* Don't hide email — shrink it instead */
+  .store-header__email {
+    display: block !important;
+    font-size: 11px !important;
+    max-width: 130px !important;
+  }
+
+  .store-header__label {
+    font-size: 9px !important;
+  }
+
+  .store-header__badge {
+    padding: 6px 12px;
+    max-width: 160px;
+  }
+
+  /* Payment modal responsive */
+  .payment-modal {
+    padding: 28px 20px;
+  }
+
+  .payment-modal__title {
+    font-size: 1.3rem;
+  }
+
+  /* Logout notif responsive */
+  .logout-notification {
+    width: calc(100% - 48px);
+    padding: 20px 24px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .store-header__email {
+    font-size: 10px !important;
+    max-width: 110px !important;
+  }
+
+  .icon-button {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+
+  .store-header__actions {
+    gap: 8px !important;
+  }
+}
