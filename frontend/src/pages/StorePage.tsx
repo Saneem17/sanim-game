@@ -240,15 +240,6 @@ export default function StorePage() {
 
         <div className="store-header__actions">
           <button
-            className="icon-button"
-            type="button"
-            title="My Inventory"
-            onClick={() => { setActiveTab('inventory'); setIsCartOpen(false) }}
-          >
-            🎒
-          </button>
-
-          <button
             className="cart-button"
             type="button"
             title="Cart"
